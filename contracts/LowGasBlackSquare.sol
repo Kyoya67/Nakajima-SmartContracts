@@ -4,12 +4,11 @@ pragma solidity ^0.8.14;
 import "@openzeppelin/contracts@4.6.0/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts@4.6.0/access/Ownable.sol";
 import "@openzeppelin/contracts@4.6.0/token/ERC721/extensions/ERC721URIStorage.sol";
-import "@openzeppelin/contracts@4.6.0/utils/Counters.sol";
 import "@openzeppelin/contracts@4.6.0/utils/Strings.sol";
 import "@openzeppelin/contracts@4.6.0/utils/Counters.sol";
 import "@openzeppelin/contracts@4.6.0/utils/Base64.sol";
 
-contract LowGasBlackSquare is ERC721, ERC721URIStorage, Ownable {
+contract LowGasBlackSquare is ERC721, Ownable {
     using Counters for Counters.Counter;
 
     mapping(uint256 => string) Squares;
@@ -22,8 +21,7 @@ contract LowGasBlackSquare is ERC721, ERC721URIStorage, Ownable {
 
     constructor() ERC721("<150*150px, #121212>", "BSN") {
         batchCreate();
-        uint256 i;
-        for(i = 1; i <= 50; i++){
+        for(uint256 i = 1; i <= 50; i++){
             nftMint(i);
         }
     }
@@ -58,19 +56,18 @@ contract LowGasBlackSquare is ERC721, ERC721URIStorage, Ownable {
     }
 
     function batchCreate() public onlyOwner{
-        uint256 i;
-        for(i = 1; i <= 50; i++){
+        for(uint256 i = 1; i <= 50; i++){
             _tokenIdCounter.increment();
             uint tokenId = _tokenIdCounter.current();
             _tokenCreationTimestamps[tokenId] = block.timestamp;
         } 
     }
 
-    function _burn(uint256 tokenId) internal override(ERC721, ERC721URIStorage){
+    function _burn(uint256 tokenId) internal override(ERC721){
         super._burn(tokenId);
     }
 
-    function tokenURI(uint256 tokenId) public view override(ERC721, ERC721URIStorage) returns(string memory) {
+    function tokenURI(uint256 tokenId) public view override(ERC721) returns(string memory) {
         require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
 
         string memory json = Base64.encode(makeMetaData(tokenId));

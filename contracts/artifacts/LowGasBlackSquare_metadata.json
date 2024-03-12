@@ -485,6 +485,9 @@
 				"symbol()": {
 					"details": "See {IERC721Metadata-symbol}."
 				},
+				"tokenURI(uint256)": {
+					"details": "See {IERC721Metadata-tokenURI}."
+				},
 				"transferFrom(address,address,uint256)": {
 					"details": "See {IERC721-transferFrom}."
 				},
@@ -621,11 +624,11 @@
 			]
 		},
 		"contracts/LowGasBlackSquare.sol": {
-			"keccak256": "0xcde2cfc4a6f5d330251b9fc32e5fa7bb644d63ab1256965e9bc7246311d593d5",
+			"keccak256": "0x82a7bff4d646437c3e4dc7a29c84d3422c3be8f056bc052da630dbf3f8a51d2c",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://76eaefe2db13bac193d4ae0d09bf5fe100d6c83af48b96f6cf5cc41190f56f3e",
-				"dweb:/ipfs/QmWgh3X8jwsYdh3rk7in7JzwDvguNnZtK1M6UVtAX1wMra"
+				"bzz-raw://f82cd3dfbfcd450a0fcaa8442391f1eaf20fa066bdba4044ef24b9a1b206786d",
+				"dweb:/ipfs/QmNwBK69s4cHx4dD5ZFE6ouBoPAQbnV7aC1XKdfNA7Kp6g"
 			]
 		}
 	},
